@@ -53,7 +53,7 @@
   </node>
 
   <!-- Sensor -->
-  <include file="$(find ydlidar_g2_ros)/launch/G2.launch" />
+  <!-- <include file="$(find ydlidar_g2_ros)/launch/G2.launch" /> -->
 
   <!-- URDF -->
   <include file="$(find como_urdf)/launch/display.launch"/>
