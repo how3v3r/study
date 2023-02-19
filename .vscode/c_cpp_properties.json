@@ -1,0 +1,41 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/hjh7870/study_ws/devel/include/**",
+        "/home/hjh7870/hack_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/amcl/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/base_local_planner/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/carrot_planner/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/clear_costmap_recovery/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/costmap_2d/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/dwa_local_planner/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/global_planner/include/**",
+        "/home/hjh7870/study_ws/src/hector_slam/hector_geotiff/include/**",
+        "/home/hjh7870/study_ws/src/hector_slam/hector_map_tools/include/**",
+        "/home/hjh7870/study_ws/src/hector_slam/hector_mapping/include/**",
+        "/home/hjh7870/study_ws/src/hector_slam/hector_marker_drawing/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/map_server/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/move_base/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/move_slow_and_clear/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/nav_core/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/navfn/include/**",
+        "/home/hjh7870/hack_ws/src/HEVEN_Hackathon/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/rotate_recovery/include/**",
+        "/home/hjh7870/study_ws/src/navigation-noetic-devel/voxel_grid/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

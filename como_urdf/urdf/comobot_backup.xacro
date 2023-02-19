@@ -1,0 +1,199 @@
+<?xml version="1.0" ?>
+<robot name="comobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find como_urdf)/urdf/materials.xacro" />
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.11116681296334317 2.4438031969407686e-07 0.10795957199598556" rpy="0 0 0"/>
+    <mass value="13.634730617679848"/>
+    <inertia ixx="0.475183" iyy="0.438473" izz="0.868845" ixy="-0.000109" iyz="-0.0" ixz="0.003459"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://como_urdf/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://como_urdf/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_scan">
+  <inertial>
+    <origin xyz="-0.00012003535987023445 0.0005134412924180124 0.022186860841184652" rpy="0 0 0"/>
+    <mass value="0.18368341137526367"/>
+    <inertia ixx="9.4e-05" iyy="9.3e-05" izz="0.000122" ixy="-0.0" iyz="-1e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.0 -0.187147" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://como_urdf/meshes/laser_scan.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.0 -0.187147" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://como_urdf/meshes/laser_scan.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="joint1" type="fixed">
+  <origin xyz="0.0 0.0 0.187147" rpy="0 0 -1.0472"/>
+  <parent link="base_link"/>
+  <child link="base_scan"/>
+</joint>
+
+<!-- ToF -->
+  <link name="ToF1">
+  </link>
+  <joint name="ToF1_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.17516 0.0 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF1"/>
+  </joint>
+  
+  <link name="ToF2">
+  </link>
+  <joint name="ToF2_joint" type="fixed">
+    <origin rpy="0 0 0.122173" xyz="0.153406 0.191503 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF2"/>
+  </joint>
+  
+  <link name="ToF3">
+  </link>
+  <joint name="ToF3_joint" type="fixed">
+    <origin rpy="0 0 0.807564" xyz="0.126565 0.262076 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF3"/>
+  </joint>
+
+  <link name="ToF4">
+  </link>
+  <joint name="ToF4_joint" type="fixed">
+    <origin rpy="0 0 1.335177" xyz="0.104187 0.279599 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF4"/>
+  </joint>
+
+  <link name="ToF5">
+  </link>
+  <joint name="ToF5_joint" type="fixed">
+    <origin rpy="0 0 1.5708" xyz="-0.104187 0.282544 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF5"/>
+  </joint>
+
+  <link name="ToF6">
+  </link>
+  <joint name="ToF6_joint" type="fixed">
+    <origin rpy="0 0 1.5708" xyz="-0.21204 0.282544 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF6"/>
+  </joint>
+
+  <link name="ToF7">
+  </link>
+  <joint name="ToF7_joint" type="fixed">
+    <origin rpy="0 0 1.806765" xyz="-0.304194 0.279587 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF7"/>
+  </joint>
+
+  <link name="ToF8">
+  </link>
+  <joint name="ToF8_joint" type="fixed">
+    <origin rpy="0 0 2.378360" xyz="-0.326568 0.262069 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF8"/>
+  </joint>
+
+  <link name="ToF9">
+  </link>
+  <joint name="ToF9_joint" type="fixed">
+    <origin rpy="0 0 2.84489" xyz="-0.358406 0.191503 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF9"/>
+  </joint>
+
+  <link name="ToF10">
+  </link>
+  <joint name="ToF10_joint" type="fixed">
+    <origin rpy="0 0 3.141592" xyz="-0.37516 0.0 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF10"/>
+  </joint>
+
+  <link name="ToF11">
+  </link>
+  <joint name="ToF11_joint" type="fixed">
+    <origin rpy="0 0 -2.84489" xyz="-0.358406 -0.191503 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF11"/>
+  </joint>
+
+  <link name="ToF12">
+  </link>
+  <joint name="ToF12_joint" type="fixed">
+    <origin rpy="0 0 -2.378360" xyz="-0.326568 -0.262069 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF12"/>
+  </joint>
+
+  <link name="ToF13">
+  </link>
+  <joint name="ToF13_joint" type="fixed">
+    <origin rpy="0 0 -1.806765" xyz="-0.304194 -0.279587 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF13"/>
+  </joint>
+  
+  <link name="ToF14">
+  </link>
+  <joint name="ToF14_joint" type="fixed">
+    <origin rpy="0 0 -1.5708" xyz="-0.21204 -0.282544 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF14"/>
+  </joint>
+
+  <link name="ToF15">
+  </link>
+  <joint name="ToF15_joint" type="fixed">
+    <origin rpy="0 0 -1.5708" xyz="-0.104187 -0.282544 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF15"/>
+  </joint>
+
+  <link name="ToF16">
+  </link>
+  <joint name="ToF16_joint" type="fixed">
+    <origin rpy="0 0 -1.335177" xyz="0.104187 -0.279599 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF16"/>
+  </joint>
+
+  <link name="ToF17">
+  </link>
+  <joint name="ToF17_joint" type="fixed">
+    <origin rpy="0 0 -0.807564" xyz="0.126565 -0.262076 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF17"/>
+  </joint>
+
+  <link name="ToF18">
+  </link>
+  <joint name="ToF18_joint" type="fixed">
+    <origin rpy="0 0 -0.122173" xyz="0.153406 -0.191503 0.102147"/>
+    <parent link="base_link"/>
+    <child link="ToF18"/>
+  </joint>
+
+</robot>

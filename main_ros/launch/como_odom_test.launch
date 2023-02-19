@@ -1,0 +1,33 @@
+<launch>
+    <!-- Arguments -->
+    <arg name="open_rviz" default="true"/>
+    <arg name="map_file" default="$(find comobot)/map/bokdo.yaml"/>
+
+    <!-- URDF -->
+    <include file="$(find como_urdf)/launch/display.launch"/>
+
+    <!-- Sensor -->
+    <include file="$(find ydlidar_g2_ros)/launch/G2.launch"/>
+
+    <!-- Motor -->
+    <!-- <include file="$(find Can2EtherCAT)/launch/Can2EtherCAT.launch"/> -->
+
+    <!-- Map server -->
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)">
+        <param name="frame_id" value="map"/>
+    </node>
+
+    <!-- AMCL -->
+    <!-- <include file="$(find comobot)/launch/como_localization.launch"/> -->
+    <node pkg="tf" name="static_transform_publisher" type="static_transform_publisher" args="0 0 0 0 0 0 map odom 100"/>  
+
+    <!-- move_base -->
+    <!-- <include file="$(find comobot)/launch/como_move_base.launch"/> -->
+
+    <!-- rviz -->
+    <group if="$(arg open_rviz)"> 
+        <node pkg="rviz" type="rviz" name="rviz" required="true"
+            args="-d $(find comobot)/rviz/mapping.rviz"/>
+    </group>
+
+</launch>

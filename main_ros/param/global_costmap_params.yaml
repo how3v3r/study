@@ -1,0 +1,24 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_link
+
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  transform_tolerance: 0.5
+
+  static_map: true
+
+  plugins:
+  - {name: global_static_layer, type: "costmap_2d::StaticLayer"}
+  - {name: global_inflation_layer, type: "costmap_2d::InflationLayer"}
+
+  global_static_layer:
+    map_topic: /map
+  
+  global_inflation_layer:
+    inflation_radius: 1.75                  
+    cost_scaling_factor: 2.58
+  
+  # global_inflation_layer:
+  #   inflation_radius: 0.5                  
+  #   cost_scaling_factor: 0.1

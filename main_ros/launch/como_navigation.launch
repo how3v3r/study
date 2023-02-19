@@ -1,0 +1,36 @@
+<launch>
+
+    <!-- Arguments -->
+    <arg name="open_rviz" default="true"/>
+    <arg name="map_file" default="$(find comobot)/map/bokdo3.yaml"/>
+    <arg name="manual" default="true"/>
+
+    <!-- URDF -->
+    <include file="$(find como_urdf)/launch/display.launch"/>
+
+    <!-- Sensor -->
+    <include file="$(find ydlidar_ros_driver)/launch/G6_G7.launch"/>
+
+    <!-- Map server -->
+    <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)">
+        <param name="frame_id" value="map"/>
+    </node>
+
+    <!-- AMCL -->
+    <include file="$(find comobot)/launch/como_localization.launch"/>
+    <!-- When forcing tf connection between map and odom, use the line below. -->
+    <!-- <node pkg="tf" name="static_transform_publisher" type="static_transform_publisher" args="0 0 0 0 0 0 map odom 100"/>   -->
+    
+    <!-- Fake Odometry -->
+    <node pkg="comobot" type="fake_odom.py" name="fake_odom"/>
+    
+    <!-- move_base -->
+    <include file="$(find comobot)/launch/como_move_base.launch"/>
+
+    <!-- rviz -->
+    <group if="$(arg open_rviz)"> 
+        <node pkg="rviz" type="rviz" name="rviz" required="true"
+            args="-d $(find comobot)/rviz/mapping.rviz"/>
+    </group>
+
+</launch>

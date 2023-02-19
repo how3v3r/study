@@ -1,0 +1,30 @@
+local_costmap:
+  global_frame: odom
+  robot_base_frame: base_link
+
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  transform_tolerance: 0.5  
+
+  static_map: false  
+  rolling_window: true
+  width: 5
+  height: 5
+  resolution: 0.05
+
+  plugins:
+  - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
+  - {name: local_inflation_layer, type: "costmap_2d::InflationLayer"}
+  # - {name: social_layer, type: "costmap_2d::SocialLayer"}
+  
+  #Configuration for the sensors that the costmap will use to update a map
+  
+  obstacle_layer:   
+    observation_sources: scan
+    scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+    observation_persistence: 10.0
+  
+  # distance that inflation calculation start from the wall (static obstacle)
+  local_inflation_layer:
+    inflation_radius: 1.75 # 1.75
+    cost_scaling_factor: 2.58 # 2.58

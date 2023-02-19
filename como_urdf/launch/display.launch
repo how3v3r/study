@@ -1,0 +1,13 @@
+<launch>
+  <arg name="model" default="$(find como_urdf)/urdf/comobot.xacro"/>
+  <arg name="gui" default="true"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  
+
+  <!--tf 정보만 보고 싶을 때 아래의 주석만 풀고 roslaunch display.launch 실행-->>
+  <!-- <param name="use_gui" value="$(arg gui)"/> -->
+  <!-- <node name="rviz" pkg="rviz" args="-d $(find comobot)/rviz/mapping.rviz" type="rviz" required="true"/> -->
+  <!-- <arg name="rvizconfig" default="$(find como_urdf)/launch/urdf.rviz"/> -->
+</launch>

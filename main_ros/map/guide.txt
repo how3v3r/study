@@ -1,0 +1,28 @@
+<mapping>
+$ roslaunch comobot como_mapping.launch
+
+<map saving>
+
+(without ending launch file)
+$ cd catkin_ws/src/main_ros/map
+$ rosrun map_server map_saver -f $NAME
+(ending launch file)
+
+
+
+<load saved map>
+
+$ rosrun map_server map_server $NAME.yaml
+(or integrate this form in the launch file) 
+
+
+<convert the map into png format>
+
+$ sudo apt-get install imagemagick
+$ convert $NAME.pgm $NAME.png
+
+
+<edit the map>
+
+$ sudo apt-get install gimp
+$ gimp
