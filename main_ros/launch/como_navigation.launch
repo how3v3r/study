@@ -9,7 +9,8 @@
     <include file="$(find como_urdf)/launch/display.launch"/>
 
     <!-- Sensor -->
-    <include file="$(find ydlidar_ros_driver)/launch/G6_G7.launch"/>
+    <!-- <include file="$(find ydlidar_ros_driver)/launch/G6_G7.launch"/> -->
+    <node pkg="comobot" type="fake_scan" name="fake_scan"/>
 
     <!-- Map server -->
     <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)">
